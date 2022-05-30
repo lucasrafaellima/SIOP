@@ -1,13 +1,64 @@
 class Main {
   public static void main(String[] args) throws Exception {
-   double[] tempo = new double[5];
-    double somaTempo = 0;
-    for (int i=0; i<5; i++) {
-    double time = calculapi(); 
-    System.out.printf("Main: Tchau! Executou em: %f segundos\n", time);
-    tempo[i] = time;
-    somaTempo = somaTempo + tempo[i];
+  double[] tempo = new double[5];
+  double somaTempo = 0;
+  int criaThread = 1;
+  for (int j = 0 ; j < 5; j++) {
+    if (criaThread == 1) {
+      for (int i=0; i<5; i++) {
+        double time = calculapi(); 
+        System.out.printf("Main: Tchau! Executou em: %f               segundos\n", time);
+        tempo[i] = time;
+        somaTempo = somaTempo + tempo[i];
       }
+    } else {
+      if (criaThread == 2) {
+        for (int i = 0; i < 10; i++) {
+        double time = calculapi(); 
+        System.out.printf("Main: Tchau! Executou em: %f               segundos\n", time);
+        tempo[i] = time;
+        somaTempo = somaTempo + tempo[i];
+        }
+      } else {
+        if (criaThread == 4) {
+          for (int i = 0; i <20; i++) {
+            double time = calculapi(); 
+            System.out.printf("Main: Tchau! Executou em: %f               segundos\n", time);
+            tempo[i] = time;
+            somaTempo = somaTempo + tempo[i];
+          }
+        } else {
+          if (criaThread == 8) {
+             for (int i = 0; i <40; i++) {
+              double time = calculapi(); 
+              System.out.printf("Main: Tchau! Executou em: %f               segundos\n", time);
+              tempo[i] = time;
+              somaTempo = somaTempo + tempo[i];
+            } 
+          } else {
+            if (criaThread == 16) {
+              for (int i = 0; i < 80; i++) {
+                double time = calculapi(); 
+                System.out.printf("Main: Tchau! Executou em: %f               segundos\n", time);
+                tempo[i] = time;
+                somaTempo = somaTempo + tempo[i];
+              } 
+            } else {
+               if (criaThread == 32) {
+                  for (int i = 0; i < 160; i++) {
+                  double time = calculapi(); 
+                  System.out.printf("Main: Tchau! Executou em: %f               segundos\n", time);
+                  tempo[i] = time;
+                  somaTempo = somaTempo + tempo[i];
+                } 
+              } 
+            }
+          }
+        }
+      }
+    }
+    criaThread = criaThread * 2;
+  }
     System.out.println("media do tempo de execucao: "+(somaTempo/5));
     double D = 0;
     double Dp = 0;
